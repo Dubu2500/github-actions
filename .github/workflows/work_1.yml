@@ -4,11 +4,13 @@ jobs:
     runs-on: ubuntu-latest
     container: node:16
     steps:
-        - run: echo "TESTING"
-        - run: node --version
-        - run: npm --version
-        - uses: actions/checkout@v3
-        - run: node app.js
+      # 1. SIEMPRE primero el checkout para que el contenedor tenga tus archivos
+      - name: Checkout del código
+        uses: actions/checkout@v3
 
-
-        
+      # 2. Ahora sí, ejecutas lo que necesites
+      - run: echo "TESTING"
+      - run: node --version
+      - run: npm --version
+      - name: Ejecutar la app
+        run: node app.js
