@@ -2,15 +2,13 @@ on: push
 jobs:
   build:
     runs-on: ubuntu-latest
-    container: node:16
+    container: node:16  # Aquí cumples con "tecnología de tu preferencia"
     steps:
-      # 1. SIEMPRE primero el checkout para que el contenedor tenga tus archivos
-      - name: Checkout del código
-        uses: actions/checkout@v3
-
-      # 2. Ahora sí, ejecutas lo que necesites
-      - run: echo "TESTING"
+      - uses: actions/checkout@v3 # PRIMERO descargamos el código
+      
+      - run: echo "Evidencia de Actividad - Victoria"
       - run: node --version
       - run: npm --version
-      - name: Ejecutar la app
-        run: node app.js
+      
+      # Esto ejecuta tu archivo app.js dentro del contenedor
+      - run: node app.js
