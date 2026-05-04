@@ -1,0 +1,12 @@
+on: push
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container: python:3.11
+    steps:
+      - uses: actions/checkout@v3
+
+      - run: echo "Evidencia Tarea 7 - Victoria"
+      - run: python --version
+
+      - run: python tarea7.py
